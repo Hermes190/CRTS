@@ -15,3 +15,9 @@ cd CRTS
 ```
 
 That's it!
+
+# How to use?
+
+You need to use the parameter "-l" and introduce your domain. It will send GET HTTP request to https://crt.sh/ and you'll get only the subdomains.
+
+My script is based in this script: https://github.com/UnaPibaGeek/ctfr/tree/master but it's a Bash version.
