@@ -10,15 +10,25 @@ turquoise="\e[0;36m\033[1m"
 gray="\e[0;37m\033[1m"
 
 
+
 linkFunction(){
 
 ingresado="$1"
 
 curl -s https://crt.sh/?q=$ingresado > output
 
-grep -o "[[:alnum:].-]*\.$ingresado\|[[:alnum:].-]*$ingresado\.[[:alnum:].-]*" output | sort | uniq
+var=$(grep -o "[[:alnum:].-]*\.$ingresado\|[[:alnum:].-]*$ingresado\.[[:alnum:].-]*" output | sort | uniq)
 
+echo "$var" | while read -r line; do
+    if [ -n "$line" ]; then
+        echo -e "${green}[+]${end} ${turquoise}${line}${end}"
+    fi
+done
+
+rm output
 }
+
+
 
 helpPanel(){
 
